@@ -8,6 +8,7 @@
 #define SYSLOGLOGGER_H_
 
 // インクルードファイル ================================
+#include "Facilities.h"
 #include "Logger.h"
 
 // クラスの前方宣言 ====================================
@@ -27,12 +28,14 @@
 class SyslogLogger  : public Logger {
  public:
   //! Constructor
-  SyslogLogger();
+  SyslogLogger(Facilities facility);
   //! Destructor
   virtual ~SyslogLogger();
+  virtual void log(Levels level, std::string message) const;
 
  protected:
  private:
+  SyslogLogger(){};
 };
 
 #endif  // SYSLOGLOGGER_H_

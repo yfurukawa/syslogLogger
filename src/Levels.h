@@ -14,24 +14,15 @@
 // マクロの宣言 ========================================
 
 // 型の宣言 ============================================
-
-// クラス定義 ==========================================
-/*!--------------------------------------------------
-@class       Levels.h
-@brief      
-@note       
-@attention  なし
-@see        なし
---------------------------------------------------*/
-class Levels {
- public:
-  //! Constructor
-  Levels();
-  //! Destructor
-  virtual ~Levels();
-
- protected:
- private:
+enum Levels {
+ALERT = LOG_ALERT,
+CRIT = LOG_CRIT,
+ERR = LOG_ERR,
+WARNING = LOG_WARNING,
+NOTICE = LOG_NOTICE,
+INFO = LOG_INFO,
+DEBUG = LOG_DEBUG
 };
+
 
 #endif  // LEVELS_H_

@@ -8,30 +8,21 @@
 #define FACILITIES_H_
 
 // インクルードファイル ================================
+#include <syslog.h>
 
 // クラスの前方宣言 ====================================
 
 // マクロの宣言 ========================================
 
 // 型の宣言 ============================================
-
-// クラス定義 ==========================================
-/*!--------------------------------------------------
-@class       Facilities.h
-@brief      
-@note       
-@attention  なし
-@see        なし
---------------------------------------------------*/
-class Facilities {
- public:
-  //! Constructor
-  Facilities();
-  //! Destructor
-  virtual ~Facilities();
-
- protected:
- private:
+enum Facilities {
+LOCAL1 = LOG_LOCAL1,
+LOCAL2 = LOG_LOCAL2,
+LOCAL3 = LOG_LOCAL3,
+LOCAL4 = LOG_LOCAL4,
+LOCAL5 = LOG_LOCAL5,
+LOCAL6 = LOG_LOCAL6
 };
 
-#endif  // FACILITIES_H_
+#endif
+

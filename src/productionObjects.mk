@@ -1,1 +1,3 @@
-OBJ = LoggerFactory.o SyslogLoggerFactory.o Logger.o SyslogLogger.o Facilities.o Levels.o 
+OBJ = Client.o \
+SyslogLoggerFactory.o \
+SyslogLogger.o

@@ -3,16 +3,11 @@
 @brief      
 @attention  なし
 --------------------------------------------------*/
-
+#include <new>
+#include "LoggerFactory.h"
 #include "SyslogLoggerFactory.h"
 
-/*!------------------------------------------------
-@brief      デフォルトコンストラクタ
-@note       クラスを構築する
-@attention  なし
---------------------------------------------------*/
-SyslogLoggerFactory::SyslogLoggerFactory() {
-}
+bool SyslogLoggerFactory::destroyed_ = false;
 
 /*!------------------------------------------------
 @brief      デフォルトデストラクタ
@@ -20,6 +15,7 @@ SyslogLoggerFactory::SyslogLoggerFactory() {
 @attention  なし
 --------------------------------------------------*/
 SyslogLoggerFactory::~SyslogLoggerFactory() {
+  destroyed_ = true;
 }
 
 /*!------------------------------------------------
@@ -30,3 +26,12 @@ SyslogLoggerFactory::~SyslogLoggerFactory() {
 @return     なし
 @attention  なし
 --------------------------------------------------*/
+LoggerFactory* LoggerFactory::getInstance() {
+  static SyslogLoggerFactory theFactory;
+  if(SyslogLoggerFactory::isDestroyed()) {
+    (void) new(&theFactory) SyslogLoggerFactory;
+  }
+  return &theFactory;
+}
+
+

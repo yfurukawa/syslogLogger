@@ -16,7 +16,7 @@
 @attention  なし
 --------------------------------------------------*/
 Client::Client() : factory_(NULL), logger_(NULL) {
-  Facilities facility;
+  Facilities facility = LOCAL1;
   factory_ = LoggerFactory::getInstance();
   logger_ = factory_->createLogger(facility);
 }
@@ -38,7 +38,7 @@ Client::~Client() {
 @attention  なし
 --------------------------------------------------*/
 void Client::execute() {
-  Levels level;
+  Levels level = INFO;
   logger_->log(level, "test message");
 }
 

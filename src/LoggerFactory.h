@@ -8,8 +8,10 @@
 #define LOGGERFACTORY_H_
 
 // インクルードファイル ================================
+#include "Facilities.h"
 
 // クラスの前方宣言 ====================================
+class Logger;
 
 // マクロの宣言 ========================================
 
@@ -26,9 +28,11 @@
 class LoggerFactory {
  public:
   //! Constructor
-  LoggerFactory();
+  LoggerFactory() {};
   //! Destructor
-  virtual ~LoggerFactory();
+  virtual ~LoggerFactory() {};
+  static LoggerFactory* getInstance();
+  virtual Logger* createLogger(Facilities facility) const = 0;
 
  protected:
  private:

@@ -3,7 +3,7 @@
 @brief      
 @attention  なし
 --------------------------------------------------*/
-
+#include <syslog.h>
 #include "SyslogLogger.h"
 
 /*!------------------------------------------------
@@ -11,7 +11,8 @@
 @note       クラスを構築する
 @attention  なし
 --------------------------------------------------*/
-SyslogLogger::SyslogLogger() {
+SyslogLogger::SyslogLogger(Facilities facility) {
+  openlog("syslogTest", LOG_PID, facility);
 }
 
 /*!------------------------------------------------
@@ -30,3 +31,7 @@ SyslogLogger::~SyslogLogger() {
 @return     なし
 @attention  なし
 --------------------------------------------------*/
+void SyslogLogger::log(Levels level, std::string message) const {
+  syslog(level, message.c_str());
+}
+

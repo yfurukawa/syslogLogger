@@ -8,6 +8,8 @@
 #define LOGGER_H_
 
 // インクルードファイル ================================
+#include <string>
+#include "Levels.h"
 
 // クラスの前方宣言 ====================================
 
@@ -26,9 +28,10 @@
 class Logger {
  public:
   //! Constructor
-  Logger();
+  Logger() {};
   //! Destructor
-  virtual ~Logger();
+  virtual ~Logger() {};
+  virtual void log(Levels level, std::string message) const = 0;
 
  protected:
  private:
