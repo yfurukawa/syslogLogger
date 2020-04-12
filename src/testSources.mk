@@ -1,0 +1,1 @@
+TEST_SRC = ../test/testMain.cpp ../test/LoggerFactoryTest.cpp ../test/SyslogLoggerFactoryTest.cpp ../test/LoggerTest.cpp ../test/SyslogLoggerTest.cpp ../test/FacilitiesTest.cpp ../test/LevelsTest.cpp 
